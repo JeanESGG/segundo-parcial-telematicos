@@ -1,0 +1,48 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+
+zone "empresa.local" {
+    type master;
+    file "/etc/bind/db.empresa.local";
+    allow-transfer { 192.168.50.14; };
+    also-notify { 192.168.50.14; };
+    notify yes;
+    allow-query { any; };
+};
+
+zone "50.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.192.168.50";
+    allow-transfer { 192.168.50.14; };
+    also-notify { 192.168.50.14; };
+    notify yes;
+    allow-query { any; };
+};
+
+zone "parcial.jean-esguerra.com" {
+    type master;
+    file "/etc/bind/db.parcial.jean-esguerra.com";
+    allow-transfer { 192.168.50.14; };
+    also-notify { 192.168.50.14; };
+};
+
+zone "servicio.com" {
+    type master;
+    file "/etc/bind/db.servicio.com";
+    allow-transfer { 192.168.50.14; };
+    also-notify { 192.168.50.14; };
+};
+
+zone "ejercicio.com" {
+    type master;
+    file "/etc/bind/db.ejercicio.com";
+    allow-transfer { 192.168.50.14; };
+    also-notify { 192.168.50.14; };
+};
+
