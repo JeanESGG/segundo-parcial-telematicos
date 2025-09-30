@@ -1,0 +1,41 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "empresa.local" {
+type slave;
+allow-query {any;};
+masters {192.168.50.3;};
+file "/var/cache/bind/db.empresa.esclavo";
+};
+
+zone "parcial.jean-esguerra.com" {
+    type slave;
+    masters { 192.168.50.3; };
+    file "/var/cache/bind/db.parcial.jean-esguerra.com";
+};
+
+
+zone "50.168.192.in-addr.arpa" {
+type slave;
+allow-query {any;};
+masters {192.168.50.3;};
+file "/var/cache/bind/db.empresa.reverse.esclavo";
+};
+
+zone "servicio.com" {
+    type slave;
+    masters { 192.168.50.3; };
+    file "/var/cache/bind/db.servicio.com";
+};
+
+zone "ejercicio.com" {
+    type slave;
+    masters { 192.168.50.3; };
+    file "/var/cache/bind/db.ejercicio.com";
+};
+
